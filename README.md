@@ -13,7 +13,7 @@ npm ci
 cp .env.example .env.local
 ```
 
-Set `NEXT_PUBLIC_SANITY_PROJECT_ID` to the real project ID, then run:
+The existing public SRC Sanity configuration is included as defaults. To override it, edit `.env.local`, then run:
 
 ```sh
 npm run dev
@@ -26,22 +26,22 @@ npm run dev
 - Project management: https://www.sanity.io/manage/project/8kwmm0xx
 
 The initial local `.env.local` is already configured for this project. A fresh
-clone must create its own `.env.local`. Restart Next.js after changing variables.
+clone can use the included public defaults without `.env.local`. Restart Next.js after changing variables.
 The CLI loads `.env.local` through `@next/env` as well.
 
 ## Environment variables
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Yes | Sanity project ID from project management |
-| `NEXT_PUBLIC_SANITY_DATASET` | Yes | `production` |
-| `NEXT_PUBLIC_SANITY_API_VERSION` | Yes | Pinned API behavior date, `2026-02-01` |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Optional | Sanity project ID; defaults to `8kwmm0xx` |
+| `NEXT_PUBLIC_SANITY_DATASET` | Optional | Defaults to `production` |
+| `NEXT_PUBLIC_SANITY_API_VERSION` | Optional | Pinned API behavior date; defaults to `2026-02-01` |
 
 These three values are public configuration, visible to Studio in the browser.
 No API token is needed for published reads from this public dataset. Studio uses
 your Sanity login for editing. Never put secrets in `NEXT_PUBLIC_*` variables.
 `.env.local` and other `.env*` files are ignored; only `.env.example` is tracked.
-Missing required configuration produces a clear error rather than using fake IDs.
+The defaults point to the existing SRC project; they are public identifiers, not credentials.
 Do not publish confidential information to the public dataset.
 
 ## Verify content fetching
@@ -89,8 +89,8 @@ npm start
 ```
 
 `npm run build` checks TypeScript but does not run ESLint; run both checks.
-Production uses the same local URLs by default. Set the three environment
-variables in the hosting platform before building. Studio is embedded and does
+Production uses the same local URLs by default. The included public defaults work on Vercel; optionally set the three environment
+variables in the hosting platform to override them. Studio is embedded and does
 not require a separate `sanity deploy`. Its route exports noindex metadata.
 
 Verified during setup: lint, TypeScript, production build, published sample

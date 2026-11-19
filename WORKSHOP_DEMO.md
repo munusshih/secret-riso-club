@@ -50,7 +50,7 @@ Source snapshot/mapping: `migration/extracted/touchdesigner.json`. The original 
 - `npm run verify:workshops`: checks live source fidelity/assets and Calendar filtering (requires Sanity CLI login).
 - `npm run lint`, `npm run typecheck`, `npm run build`.
 
-The existing `.env.local` uses `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, and `NEXT_PUBLIC_SANITY_API_VERSION`. The dataset is publicly readable. No write token is shipped to the browser; Studio uses the signed-in editor's account.
+The project includes public SRC defaults, with optional `.env.local` or Vercel overrides via `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, and `NEXT_PUBLIC_SANITY_API_VERSION`. The dataset is publicly readable. No write token is shipped to the browser; Studio uses the signed-in editor's account.
 
 Workshop and homepage requests use the published perspective, `useCdn: false`, `cache: "no-store"`, and request-time rendering via `connection()`. Existing development HMR fetch caching is disabled. Refresh the full page after publishing; no webhook or redeploy is needed. Sanity query indexing may take a brief moment after publishing, so refresh again if necessary.
 

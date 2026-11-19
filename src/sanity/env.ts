@@ -1,8 +1,5 @@
-function required(value: string | undefined, name: string): string {
-  if (!value) throw new Error(`Missing ${name}. Set it in .env.local and restart Next.js.`);
-  return value;
-}
-
-export const projectId = required(process.env.NEXT_PUBLIC_SANITY_PROJECT_ID, "NEXT_PUBLIC_SANITY_PROJECT_ID");
-export const dataset = required(process.env.NEXT_PUBLIC_SANITY_DATASET, "NEXT_PUBLIC_SANITY_DATASET");
-export const apiVersion = required(process.env.NEXT_PUBLIC_SANITY_API_VERSION, "NEXT_PUBLIC_SANITY_API_VERSION");
+// Public configuration for this SRC project, shared by Next.js and Studio.
+// Environment variables can override these values for another project/dataset.
+export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "8kwmm0xx";
+export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
+export const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2026-02-01";
