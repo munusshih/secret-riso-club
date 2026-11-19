@@ -46,15 +46,17 @@ Do not publish confidential information to the public dataset.
 
 ## Verify content fetching
 
-1. Open `/studio`, sign in to Sanity, and create a **Sample Note**.
-2. Enter its title and message and click **Publish**.
-3. Refresh `/`; it renders the newest published note from Sanity using GROQ.
+See [SANITY_DEMO.md](SANITY_DEMO.md) for the current live demonstration.
 
-An initial note titled **Hello from SRC Test** was published and read back during
-setup. Drafts are excluded. The homepage requests fresh data on each request
-(`cache: "no-store"`, `useCdn: false`), so a refresh verifies publishing without
-waiting for a revalidation interval. An empty dataset displays instructions; API
-failures surface as errors rather than falsely reporting an empty dataset.
+1. Open `/studio`, sign in to Sanity, and select **Homepage**.
+2. Edit the **Introduction** field and click **Publish**.
+3. Refresh `/`; the long introduction paragraph shows the published text.
+
+The Homepage singleton is seeded with the original introduction. Drafts are
+excluded. The homepage renders per request and fetches without caching
+(`cache: "no-store"`, `useCdn: false`), so refreshing shows published updates.
+Missing or empty published content uses the original paragraph as fallback.
+The original Sample Note schema remains available but is not used by the homepage.
 
 Optional repeatable seed command (creates a note only when none is published):
 
@@ -63,6 +65,7 @@ npx sanity login
 npm run seed
 ```
 
+This optional seed creates a Sample Note only; the homepage demo uses Homepage.
 The seed uses the CLI's authenticated user token in memory, without writing it
 to an environment file or source file. Sanity assigns the document ID.
 

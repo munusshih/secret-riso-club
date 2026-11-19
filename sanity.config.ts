@@ -1,6 +1,6 @@
 "use client";
 
-import { defineConfig } from "sanity";
+import { defineConfig, defineSingleton } from "sanity";
 import { structureTool } from "sanity/structure";
 import { dataset, projectId } from "./src/sanity/env";
 import { schemaTypes } from "./src/sanity/schemaTypes";
@@ -13,4 +13,7 @@ export default defineConfig({
   dataset,
   plugins: [structureTool()],
   schema: { types: schemaTypes },
+  document: {
+    singletons: [defineSingleton({ documentId: "homepage", schemaType: "homepage" })],
+  },
 });

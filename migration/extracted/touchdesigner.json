@@ -1,0 +1,26 @@
+{
+  "sourceUrl": "https://secretrisoclub.com/TouchDesigner-for-Print-Riso-Edition",
+  "title": "TouchDesigner for Print: Riso Edition",
+  "category": "Group Workshop",
+  "instructor": "Woody Poulard (aka GRNCH)",
+  "paragraphs": [
+    "TouchDesigner is a real-time generative graphics application capable of producing everything from noise-driven abstract compositions to complex mathematical forms. In this class, we'll use it as a design tool for print — building generative poster artwork and then bringing it to life on the Risograph.",
+    "We'll go through multiple examples of how to create beautiful generative compositions in TouchDesigner with a focus on static output: working at print resolution, exporting high-quality still frames, and separating your artwork into two color channels ready for Riso printing.",
+    "In the class we will discuss the fundamentals of TouchDesigner. If you have never used a node-based programming environment before, this class is for you. I walk you through the basics of TouchDesigner logic and workflows, explaining exactly what nodes and wires are and how they work. This includes a walkthrough of the basic settings and preferences that set you up for success and make your life easier.",
+    "We will learn about all six of the operator families used by TouchDesigner and how they integrate into the workflow, with a focus on building compositions designed for print output.",
+    "From there we move to the Risograph — covering a brief history of the machine and technique, how to operate it, and best practices for file preparation. We'll explore how to maximize the visual effect of two colors through opacities, overlay, and knockout, taking full advantage of the generative source material we built in TouchDesigner."
+  ],
+  "images": [
+    "https://freight.cargo.site/t/original/i/4d068e50216e0425048599b69791fcf721e483808f25bc37fc07741533f2c88d/Frame-3.png",
+    "https://freight.cargo.site/t/original/i/2223645d26baac153520b8558670857ca676ce925694e853d5ee10f90481f5d1/Frame-4.png",
+    "https://freight.cargo.site/t/original/i/762477e7c3c0fce4b16a28a82810fced55e0c8c841ed4f6d62e204b4aa5c696d/Frame-5.png"
+  ],
+  "ticketUrl": "https://pools.events/t/wcimuk_x/",
+  "sessions": [
+    "Day 1: July 8th (6–9pm)",
+    "Day 2: July 11th (1–5pm)"
+  ],
+  "optionalOfficeHours": "March 19th, 5–8pm",
+  "attendanceNote": "Must attend both sessions!",
+  "scheduleNotes": "The source does not specify the year for the July sessions. Office hours conflict: the webpage says March 19th, 5–8pm; the original poster says Thursday, July 9th, 6–8pm. Dates, timezone and registration availability have not been verified. This is a reference listing, not a confirmed upcoming event."
+}

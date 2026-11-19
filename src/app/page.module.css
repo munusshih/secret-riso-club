@@ -1,0 +1,163 @@
+.home { background: #fff; color: #000; --navigation-height: clamp(40px, 2.7vw, 60px); }
+.pageContent { container-type: inline-size; width: 100%; transition: width .45s ease; }
+.stage { container-type: inline-size; position: relative; width: 100%; height: calc(100svh - var(--navigation-height)); min-height: 50cqw; overflow: hidden; }
+.header { position: sticky; top: 0; height: var(--navigation-height); padding: 0 4.5%; background: #fff; border-bottom: 1px solid; display: flex; align-items: center; justify-content: space-between; z-index: 5; }
+.navigation { display: flex; justify-content: space-between; width: 91.5%; }
+.navigation a, .bottomLinks a { font-family: Arial, Helvetica, sans-serif; font-size: 1.83cqw; line-height: 1.12; text-transform: uppercase; letter-spacing: -.065em; }
+.navigation a:hover, .bottomLinks a:hover { text-decoration: underline; text-underline-offset: .15em; }
+.menu { position: relative; }
+.menuButton { width: 2.3cqw; height: 2.4cqw; padding: .2cqw 0; background: none; border: 0; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; }
+.menuButton span { height: .27cqw; width: 100%; background: currentColor; transition: transform .2s, opacity .2s; }
+.menuOpen span:first-child { transform: translateY(.87cqw) rotate(45deg); }
+.menuOpen span:nth-child(2) { opacity: 0; }
+.menuOpen span:last-child { transform: translateY(-.87cqw) rotate(-45deg); }
+.menuPanel { position: absolute; right: 0; top: calc(100% + 18px); width: min(440px, 86cqw); padding: 20px 26px; background: #000; color: #fff; }
+.menuPanel a { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #555; font-family: var(--font-grotesk), sans-serif; font-size: 28px; text-transform: uppercase; }
+.menuPanel a:last-child { border: 0; }
+.menuPanel a:hover { color: #c7ff00; }
+.monogram { position: absolute; top: 4.6%; left: 50%; transform: translateX(-50%); font-family: var(--font-tempel), Arial, sans-serif; font-size: 4.55cqw; line-height: .95; letter-spacing: -.045em; z-index: 2; }
+.sidelabel { position: absolute; top: 10.5%; left: 3%; display: flex; gap: 3.3cqw; writing-mode: vertical-rl; transform: rotate(180deg); font: bold 1.02cqw/.95 "Courier New", monospace; }
+.drawing { position: absolute; right: 4.5%; top: 5%; width: 27%; height: 91%; pointer-events: none; z-index: 2; }
+.blocks { pointer-events: none; }
+.blocks i { position: absolute; width: 3.25cqw; aspect-ratio: 1; background: #000; border-radius: 27%; transform: translateY(var(--block-drift, 0px)); --float-x: clamp(6px, 1cqw, 18px); --float-y: clamp(9px, 1.4cqw, 24px); animation: floatBlock var(--float-duration, 11s) ease-in-out var(--float-delay, -2s) infinite; }
+.blocks i:nth-child(1) { left: 9%; top: 10.6%; --float-duration: 11s; --float-delay: -2s; }
+.blocks i:nth-child(2) { left: 32.3%; top: 6.5%; --float-duration: 14s; --float-delay: -8s; animation-direction: reverse; }
+.blocks i:nth-child(3) { left: 58.4%; top: 9.8%; --float-duration: 12s; --float-delay: -5s; }
+.blocks i:nth-child(4) { right: 8.6%; top: 9.7%; z-index: 3; --float-duration: 16s; --float-delay: -11s; animation-direction: reverse; }
+.blocks i:nth-child(5) { left: 14.5%; top: 47.8%; --float-duration: 13s; --float-delay: -4s; animation-direction: reverse; }
+.blocks i:nth-child(6) { left: 64.9%; bottom: 1.3%; --float-duration: 15s; --float-delay: -9s; }
+@keyframes floatBlock {
+  0%, 100% { translate: calc(var(--float-x) * -.5) calc(var(--float-y) * .25); }
+  35% { translate: var(--float-x) calc(var(--float-y) * -1); }
+  70% { translate: calc(var(--float-x) * -.75) calc(var(--float-y) * -.35); }
+}
+.statement { position: absolute; top: calc(17.1svh - var(--navigation-height)); left: 12%; width: 76%; margin: 0; text-align: center; font-family: "Times New Roman", Times, serif; font-size: min(4.53cqw, 7.5svh); line-height: .82; letter-spacing: -.04em; font-weight: 400; }
+.statement span { display: block; white-space: nowrap; transform: scaleX(1.1); }
+.title { position: absolute; top: 52.8%; left: 2.7%; width: 94.6%; margin: 0; font-family: var(--font-tempel), Arial, sans-serif; font-size: 8.12cqw; line-height: .85; font-weight: 400; letter-spacing: 0; white-space: nowrap; z-index: 3; }
+.description { position: absolute; top: 66.1%; left: 5.5%; width: 89%; margin: 0; font: bold 1.26cqw/.94 "Courier New", monospace; letter-spacing: -.035em; z-index: 3; }
+.serifWordmark { position: absolute; top: 76.3%; left: 7%; right: 7.5%; display: flex; justify-content: space-between; font-family: "Times New Roman", Times, serif; font-size: 11.7cqw; line-height: .86; letter-spacing: -.075em; }
+.serifWordmark span { transform: scaleX(.92); transform-origin: left; }
+.bottomLinks { position: absolute; bottom: 1.3%; left: 3.7%; right: 4.5%; display: flex; justify-content: space-between; z-index: 3; }
+@media (max-width: 700px) {
+  .home { --navigation-height: 64px; }
+  .stage { height: auto; min-height: 0; aspect-ratio: auto; padding: 0 20px 24px; display: flex; flex-direction: column; }
+  .header { padding: 0 20px; }
+  .navigation { width: auto; gap: 24px; }
+  .navigation a { font-size: 20px; }
+  .navigation a:nth-child(n+3) { display: none; }
+  .menuButton { width: 27px; height: 27px; padding: 3px 0; }
+  .menuButton span { height: 3px; }
+  .menuOpen span:first-child { transform: translateY(9px) rotate(45deg); }
+  .menuOpen span:last-child { transform: translateY(-9px) rotate(-45deg); }
+  .monogram { top: 83px; font-size: 55px; }
+  .sidelabel { display: none; }
+  .blocks i { width: 25px; border-radius: 7px; }
+  .blocks i:nth-child(1) { left: 8%; top: 105px; }
+  .blocks i:nth-child(2) { left: 76%; top: 160px; }
+  .blocks i:nth-child(3), .blocks i:nth-child(4) { display: none; }
+  .blocks i:nth-child(5) { left: 8%; top: 460px; }
+  .blocks i:nth-child(6) { width: 25px; left: 63%; bottom: 23px; }
+  .statement { position: relative; inset: auto; width: 100%; font-size: clamp(31px, 7.8cqw, 54px); line-height: .95; letter-spacing: -.045em; margin: 115px 0 64px; z-index: 1; }
+  .statement span { display: inline; white-space: normal; transform: none; }
+  .statement span::after { content: " "; }
+  .title { position: relative; inset: auto; width: 100%; white-space: normal; font-size: 16.7cqw; line-height: .85; letter-spacing: -.045em; margin: 0 0 22px; }
+  .description { position: relative; inset: auto; width: 100%; font-size: 13px; line-height: 1.12; letter-spacing: -.04em; }
+  .drawing { top: 110px; right: -24%; width: 70%; height: calc(100% - 150px); opacity: .65; z-index: 0; }
+  .serifWordmark { position: relative; inset: auto; flex-wrap: wrap; column-gap: 12px; margin: 36px 0; font-size: 18.4cqw; line-height: .9; z-index: 1; }
+  .serifWordmark span { transform: none; }
+  .serifWordmark span:last-child { margin-left: auto; }
+  .bottomLinks { position: relative; inset: auto; margin-top: 12px; }
+  .bottomLinks a { font-size: 21px; }
+
+}
+@media (prefers-reduced-motion: reduce) {
+  .menuButton span { transition: none; }
+  .blocks i { animation: none; translate: none; transform: none; }
+}
+
+.experience[data-calendar="true"] .pageContent { width: 70%; }
+.servicesScene { container-type: inline-size; position: relative; min-height: 780px; height: calc(100svh - var(--navigation-height)); overflow: hidden; }
+.sceneMonogram { left: 10%; top: 3%; font-size: 3.1cqw; }
+.servicesScene .blocks i:nth-child(1) { left: 6%; top: 18%; }
+.servicesScene .blocks i:nth-child(3) { left: 73%; top: 32%; }
+.servicesScene .blocks i:nth-child(4) { right: 7%; top: 42%; }
+.servicesScene .blocks i:nth-child(5) { left: 20%; top: 56%; }
+.servicesScene .blocks i:nth-child(6) { left: 34%; bottom: 20%; }
+.what { position: absolute; top: 25%; left: 5%; margin: 0; font: 400 2.2cqw/.9 "Times New Roman", serif; letter-spacing: -.07em; }
+.offeringList { position: absolute; top: 10%; left: 35%; width: 32%; text-align: center; font: 400 clamp(43px, 5.45svh, 70px)/.91 "Times New Roman", serif; letter-spacing: -.045em; }
+.offeringList span { display: block; white-space: nowrap; scroll-margin-top: calc(var(--navigation-height) + 16px); }
+.visit { z-index: 2; position: absolute; top: 7.5%; right: 2.8%; width: 29%; text-align: center; }
+.hours { margin: 0; font: 400 3.25cqw/.83 "Times New Roman", serif; letter-spacing: -.07em; }
+.address { margin: 31svh 0 3svh; font: bold 1.25cqw/1 "Courier New", monospace; white-space: nowrap; }
+.calendarButton { display: block; margin-left: auto; margin-right: 3%; padding: 0 .5cqw; border: 1px solid; background: #fff; color: #000; font: 400 2.6cqw/.95 "Times New Roman", serif; letter-spacing: -.07em; cursor: pointer; }
+.calendarButton:hover { color: #fff; background: #000; }
+.nueva { position: absolute; left: 4%; top: 54%; width: 17%; }
+.nueva p { text-align: right; margin: 0; font: bold 1.25cqw/1 "Courier New", monospace; }
+.smallMark { pointer-events: none; width: 100%; margin-top: 1cqw; }
+.largeMark { pointer-events: none; position: absolute; right: 6%; bottom: 4%; width: 27%; color: #aaa; transform: rotate(-8deg); }
+.servicesFooter { position: absolute; left: 4%; right: 3%; bottom: 1%; display: flex; justify-content: space-between; font-size: 1.8cqw; letter-spacing: -.065em; }
+.calendarPanel { position: fixed; top: 0; right: 0; width: 30%; height: 100svh; background: #fff; border-left: 1px solid; z-index: 8; container-type: inline-size; display: flex; flex-direction: column; }
+.calendarHeading { position: relative; padding: 30px 12px 0; text-align: center; flex-shrink: 0; }
+.calendarHeading h2 { margin: 0; font: 400 13cqw/.9 var(--font-tempel), sans-serif; letter-spacing: -.025em; }
+.calendarHeading > p { margin: 8px 0 20px; font: 400 6cqw/1 var(--font-tempel), sans-serif; }
+.calendarHeading address { font: normal bold 3.8cqw/1.2 "Courier New", monospace; }
+.closeCalendar { position: absolute; top: 0; right: 10px; padding: 0 4px; border: 0; background: transparent; font: 28px/1 Arial, sans-serif; cursor: pointer; }
+.calendarScroll { overflow-y: auto; overscroll-behavior: contain; padding: 40px 12px 12px; }
+.calendarNotice { font: 2.5cqw/1.4 "Courier New", monospace; margin: 0 0 24px; }
+.event { border-bottom: 1px solid #777; padding: 16px 0; }
+.event h3 { margin: 0 0 12px; text-align: center; font: 400 5.7cqw/1 Arial, sans-serif; letter-spacing: -.07em; }
+.eventMeta { display: flex; align-items: baseline; justify-content: space-between; font: bold 3.7cqw/1 "Courier New", monospace; }
+.eventMeta time { font: bold 5.5cqw/1 Arial, sans-serif; letter-spacing: -.07em; }
+.eventMeta span:first-of-type { font-family: var(--font-tempel), sans-serif; }
+.event > p { margin: 6px 0 0; font: bold 3.5cqw/1.1 "Courier New", monospace; }
+.calendarScroll .hours { margin-top: 24px; font-size: 10cqw; text-align: center; }
+@media (max-width: 700px) {
+  .experience[data-calendar="true"] .pageContent { width: 100%; }
+  .servicesScene { height: auto; min-height: 0; padding: 40px 20px 24px; display: flex; flex-direction: column; gap: 24px; }
+  .sceneMonogram { position: static; transform: none; font-size: 40px; align-self: flex-start; }
+  .what { position: static; font-size: 22px; margin-bottom: 24px; }
+  .offeringList { position: static; width: 100%; font-size: 11cqw; line-height: .95; }
+  .visit { z-index: 2; position: static; width: 100%; margin-top: 36px; }
+  .hours { font-size: 9cqw; }
+  .address { margin: 24px 0; font-size: 12px; }
+  .calendarButton { margin: 0 auto; padding: 3px 12px; font-size: 32px; }
+  .nueva { position: static; width: 38%; margin-top: 30px; }
+  .nueva p { font-size: 12px; }
+  .largeMark { width: 45%; right: 7%; bottom: 50px; }
+  .servicesFooter { position: static; margin-top: 24px; font-size: 12px; order: 4; }
+  .calendarPanel { width: 100%; }
+  .calendarHeading h2 { font-size: 12cqw; }
+  .calendarHeading > p { font-size: 5cqw; }
+  .calendarHeading address { font-size: 3.5cqw; }
+  .calendarScroll { padding-top: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pageContent { transition: none; }
+}
+
+.hours span { display: block; white-space: nowrap; }
+.calendarDecorations { position: absolute; inset: 0; pointer-events: none; }
+.redTile { position: absolute; top: 7%; right: 22%; width: 7%; height: 10%; background: radial-gradient(ellipse, #a29ec8 0%, #f83335 70%); }
+.blueTile { position: absolute; top: 57%; left: 8%; width: 12%; height: 12%; background: linear-gradient(#42b5dd, #a685ae); }
+.workshopPoster { position: absolute; top: 63%; right: 3.5%; width: 14%; height: 19%; padding: 1cqw; background: radial-gradient(ellipse, #817d24, #c51f28 75%); display: flex; flex-direction: column; justify-content: space-between; text-align: center; }
+.workshopPoster > span { font: 400 4.3cqw/.8 var(--font-tempel), sans-serif; letter-spacing: -.04em; }
+.workshopPoster small { font-size: 1.5cqw; letter-spacing: -.06em; }
+.memberPoster { position: absolute; left: 0; bottom: 0; width: 23%; height: 12%; padding: .7cqw; background: radial-gradient(ellipse at 50% 70%, #ab7fae, #67bd3d 75%); font: 400 2.4cqw/1 var(--font-tempel), sans-serif; }
+@media (max-width: 700px) { .calendarDecorations { display: none; } }
+
+.moreLinks { display: none; border: 0; padding: 0; background: none; color: inherit; font: 3.2cqw/.7 Arial, sans-serif; cursor: pointer; }
+.experience[data-calendar="true"] .navigation a:nth-child(n+5) { display: none; }
+.experience[data-calendar="true"] .moreLinks { display: block; }
+@media (max-width: 700px) { .experience[data-calendar="true"] .moreLinks { display: none; } }
+
+.titleDock { position: fixed; top: 52.8svh; transform: translateY(var(--title-offset, 0px)); left: 0; width: 100%; container-type: inline-size; z-index: 4; pointer-events: none; transition: width .45s ease; }
+.titleDock .title { position: relative; top: auto; }
+.descriptionDock { position: fixed; top: var(--description-start, 66.1svh); left: 0; width: 100%; container-type: inline-size; z-index: 4; pointer-events: none; transform: translateY(var(--description-offset, 0px)); transition: width .45s ease; }
+.descriptionDock .description { position: relative; top: auto; margin: 0; }
+.experience[data-calendar="true"] .titleDock, .experience[data-calendar="true"] .descriptionDock { width: 70%; }
+@media (max-width: 700px) {
+  .titleDock .title { left: 2.7%; width: 94.6%; font-size: 8.12cqw; line-height: .85; white-space: nowrap; letter-spacing: 0; margin: 0; }
+  .descriptionDock .description { left: 5.5%; width: 89%; font-size: 11px; line-height: 1.12; }
+  .experience[data-calendar="true"] .titleDock, .experience[data-calendar="true"] .descriptionDock { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .titleDock, .descriptionDock { transition: none; } }
